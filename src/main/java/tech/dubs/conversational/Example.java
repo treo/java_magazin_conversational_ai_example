@@ -8,6 +8,7 @@ import com.theokanning.openai.service.OpenAiService;
 import okhttp3.*;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -16,7 +17,7 @@ public class Example {
     static final String openaiKey = "YOUR OPENAI KEY GOES HERE";
     static final String vectoKey = "YOUR WIKIPEDIA VECTO KEY GOES HERE";
 
-    static final OpenAiService openai = new OpenAiService(openaiKey);
+    static final OpenAiService openai = new OpenAiService(openaiKey, Duration.ofSeconds(90));
 
     public static String askBot(List<ChatMessage> messages){
         final ChatCompletionRequest request = ChatCompletionRequest.builder()
